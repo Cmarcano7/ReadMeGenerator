@@ -2,17 +2,7 @@ var inquirer = require('inquirer');
 var fs = require('fs');
 var generateMarkdown = require('./utils/generateMarkdown');
 
-console.log("Welcome, allow me to help you create a ReadMe file")
-
-// Function to check if user inputted value
-const emptyField = moreValidationChecks => ({
-  validate: input => {
-    if (input === '') {
-      return 'Please provide a valid value'
-    }
-    return moreValidationChecks ? moreValidationChecks(input) : true
-  }
-});
+console.log("Welcome, allow me to help you create a ReadMe file");
 
 // array of questions for user
 const questions = [
@@ -93,6 +83,7 @@ function init() {
     .then(answers => {
       // Use user feedback for... whatever!!
       writeToFile(answers.title + "readme.md", answers)
+      console.log("Generating ReadMe file please wait....")
     })
 }
 
