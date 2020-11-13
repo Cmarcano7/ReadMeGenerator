@@ -1,6 +1,6 @@
 var inquirer = require('inquirer');
 var fs = require('fs');
-var generate = require('./utils/generateMarkdown');
+var generateMarkdown = require('./utils/generateMarkdown');
 
 console.log("Welcome, allow me to help you create a ReadMe file")
 
@@ -18,48 +18,69 @@ const emptyField = moreValidationChecks => ({
 const questions = [
     {
       type: 'input',
+      name: 'username',
+      message: 'What is your Github username?',
+      
+    },
+    {
+      type: 'input',
+      name: 'email',
+      message: 'What is your email address?'
+      
+    },
+    {
+      type: 'input',
       name: 'title',
       message: 'What is the title of your project?',
-      ...emptyField(),
+      
     },
     {
       type: 'input',
       name: 'description',
       message: 'Give a description of your project.',
-      ...emptyField(),
+      
     },
     {
       type: 'input',
       name: 'installation',
       message: 'How do you install your project?',
-      ...emptyField(),
+      default: 'npm i',
+    },
+    {
+      type: 'input',
+      name: 'test',
+      message: 'How do you run the tests for your project?',
+      default: 'npm test',
     },
     {
       type: 'input',
       name: 'usage',
-      message: 'What is the general usage of your project?',
-      ...emptyField(),
+      message: 'Explain using your project further.',
+      
     },
     {
       type: 'input',
-      name: 'credits',
-      message: 'Who do you want to credit for this project?',
-      ...emptyField(),
+      name: 'contribute',
+      message: 'How can someone contribute to your project?',
+      
     },
     {
-      type: 'confirm',
-      name: 'tableOfContents',
-      message: 'Would you like a table of contents',
-      default: true,
+      type: 'list',
+      name: 'license',
+      message: 'What kind of license does your project have?',
+      choices: ['MIT', 'APACHE 2.0', 'GPL 3.0', 'BSD 3', 'None'],
     },
 ];
 
 // function to write README file
 function writeToFile(fileName, data) {
-    //vars for the answers the users submit
-    
-    // var data = user inputted data will be placed here to auto generate their responses into the template Readme file on hand
+    fs.writeFileSync("./utils/readmeFiles/" + fileName, generateMarkdown(data), function(err) {
 
+      if (err) {
+        return console.log(err);
+      }
+    
+    });
 };
 
 // function to initialize program
@@ -71,12 +92,10 @@ function init() {
     .prompt(questions)
     .then(answers => {
       // Use user feedback for... whatever!!
-      
+      writeToFile(answers.title + "readme.md", answers)
     })
 }
 
-
-
- //function call to initialize program
+//function call to initialize program
 init();
 
