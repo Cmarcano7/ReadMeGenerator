@@ -82,7 +82,7 @@ function init() {
     .prompt(questions)
     .then(answers => {
       // Use user feedback for... whatever!!
-      writeToFile(answers.title + "readme.md", answers)
+      writeToFile(answers.title + "_readme.md", answers)
       console.log("Generating ReadMe file please wait....")
     })
 }
