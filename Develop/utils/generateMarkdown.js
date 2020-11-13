@@ -9,12 +9,12 @@ function generateMarkdown(data) {
   
   ## Table of Contents 
 
-  * [Installation](#installation)
-  * [Usage](#usage)
-  * [Contributing](#contributing)
-  * [Test](#test)
-  * [Contact_Me](#contactme)
-  * [License](#license)
+  * [Installation](#Installation)
+  * [Usage](#Usage)
+  * [Contributing](#Contributing)
+  * [Test](#Test)
+  * [Contact Me](#ContactMe)
+  * [License](#License)
 
   ## Installation
 
@@ -44,7 +44,7 @@ function generateMarkdown(data) {
 
   ---
 
-  ## Contact Me
+  ## Contact Me <a name="ContactMe"></a>
 
   Contact me by email (${data.email}) or through my github (github.com/${data.username}).
 
