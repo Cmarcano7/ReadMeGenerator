@@ -13,6 +13,8 @@ This projects' code can be found on my github (Link can be found below).
 2. [Project Overview](#projectoverview)
 3. [Execution](#Execution)
 4. [Contains](#Contains)
+5. [Demonstration](#Demonstration)
+6. [Future](#Future)
 
 
 ## Links
@@ -44,3 +46,7 @@ This projects' code can be found on my github (Link can be found below).
 * Link to demo [Here](https://drive.google.com/file/d/1lNAuq1yT7ge_nX41QQVocUw9VBXP-RzW/view?usp=sharing)
 
 * MSU BootCamp
+
+## Future
+
+* For the future of this project I would like to give the users the ability to add links as well as images to the readme template.
